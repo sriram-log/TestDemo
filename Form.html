@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>ANgular JS Forms</title>
+    <script src="angular.min.js"></script>
+
+    <script>
+    angular.module("formsapp", []).controller("formCtrl", function($scope)
+        {
+             var person = {
+             firstName: "Sriram",
+             age: 19,
+             address:
+             {
+                 street: "16th Street",
+                 suburb: "Port Kennedy",
+                 state: "TAMILNADU"
+             }
+        }
+       $scope.person = person;
+       $scope.showFirstName = function() {
+           alert("Name is " + person.firstName);
+       }
+    });
+    </script>
+</head>
+
+<body>
+    <div ng-app="formsapp">
+        <div ng-controller="formCtrl">
+            <form name="theForm">
+                <input type="text" name="firstName" ng-model="person.firstName">
+                <br>
+                <input type="text" name="firstName" ng-model="person.address.street">
+                <br>
+                <input type="button" value="Show the name" ng-click="showFirstName()">
+            </form>
+
+            <p>
+                First name is {{ person.firstName }}
+                <br> Street name is  <span ng-bind="person.address.street"></span>
+            </p>
+
+        </div>
+    </div>
+</body>
+
+</html>
